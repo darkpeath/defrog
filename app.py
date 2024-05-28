@@ -18,9 +18,10 @@ data = pd.DataFrame([
     ['c3', 5, 'tom'],
     ['b4', 2, 'alice'],
 ], columns=['id', 'value', 'name'])
+names = sorted(set(data['name']))
 
 if st.checkbox('filter'):
-    option = st.selectbox('name', data['name'])
+    option = st.selectbox('name', names)
     data = data[data['name'] == option]
 
 st.dataframe(data, hide_index=True)
